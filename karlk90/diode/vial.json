@@ -1,0 +1,41 @@
+{
+    "name": "YAEMK is Yet Another Ergonomic Mechanical (Split-)Keyboard",
+    "vendorId": "0x4B4B",
+    "productId": "0x5941",
+    "lighting": "none",
+    "matrix": {
+        "rows": 2,
+        "cols": 2
+    },
+    "layouts": {
+        "keymap": [
+            [
+                {
+                    "x": 13.95
+                },
+                "0,0"
+            ],
+            [
+                {
+                    "y": -0.92,
+                    "x": 3.09
+                },
+                "0,1"
+            ],
+            [
+                {
+                    "y": -0.8300000000000001,
+                    "x": 12.95
+                },
+                "1,0"
+            ],
+            [
+                {
+                    "y": -0.96,
+                    "x": 4.09
+                },
+                "1,1"
+            ]
+        ]
+    }
+}

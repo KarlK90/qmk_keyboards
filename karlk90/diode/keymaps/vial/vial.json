@@ -1,0 +1,26 @@
+{
+    "name": "YAEMK is Yet Another Ergonomic Mechanical (Split-)Keyboard",
+    "vendorId": "0xDEAD",
+    "productId": "0xBEEF",
+    "lighting": "vialrgb",
+    "matrix": {
+        "rows": 2,
+        "cols": 2
+    },
+    "layouts": {
+        "keymap": [
+            [
+                "0,0"
+            ],
+            [
+                "0,1"
+            ],
+            [
+                "1,0"
+            ],
+            [
+                "1,1"
+            ]
+        ]
+    }
+}
