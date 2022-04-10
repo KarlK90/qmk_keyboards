@@ -13,9 +13,9 @@
 #define MATRIX_COLS 6
 #define MATRIX_ROWS 10
 #define MATRIX_COL_PINS \
-    { B0, B1, B10, B3, B4, B5 }
+    { B0, B1, B2, B3, B4, B5 }
 #define MATRIX_COL_PINS_RIGHT \
-    { B0, B1, B10, B3, B4, B5 }
+    { B0, B1, B2, B3, B4, B5 }
 
 #define MATRIX_ROW_PINS \
     { B15, A2, B8, A8, B9 }
@@ -36,6 +36,9 @@
 // Without the following configurations the WS2812 would not light up
 #define WS2812_PWM_TARGET_PERIOD 800000
 
+/* WAIT API */
+// #define WAIT_US_TIMER GPTD3
+
 /* CRC DRIVER */
 #define CRC8_USE_TABLE
 #define CRC8_OPTIMIZE_SPEED
@@ -44,6 +47,7 @@
 #define SPLIT_HAND_PIN A3
 
 /* SERIAL SPLIT DRIVER */
+#define SOFT_SERIAL_PIN A9
 #define SERIAL_USART_TX_PIN A9
 // To use the highest possible baudrate (3.75Mbit/s) uncomment the following
 // line, this can result in dropped communications so lower the speed if there
