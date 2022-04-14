@@ -1,0 +1,17 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "make",
+            "type": "shell",
+            "command": "make karlk90/dzzy:default -j 12"
+        },
+        {
+            "label": "make debounce test",
+            "type": "shell",
+            "command": "make test:debounce_sym_auto_eager_pk -j 12"
+        }
+    ]
+}

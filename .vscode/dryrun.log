@@ -1,0 +1,4 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory '/home/karlk/Development/qmk_firmware'
+QMK Firmware 0.15.17
+ 

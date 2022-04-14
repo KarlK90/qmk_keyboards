@@ -28,6 +28,8 @@
 #undef STM32_RTCSEL
 #define STM32_RTCSEL STM32_RTCSEL_NOCLOCK
 
+#undef STM32_SPI_USE_SPI2
+#define STM32_SPI_USE_SPI2                  TRUE
 #elif defined(__riscv)
 
 /* GD32VF103 */

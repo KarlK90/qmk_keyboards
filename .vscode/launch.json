@@ -1,0 +1,105 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "interface": "swd",
+            "request": "launch",
+            "name": "Debug launch ARM Blackpill STLink",
+            "cwd": "${workspaceRoot}",
+            "executable": ".build/karlk90_yaemk_koy.elf", /* Change this to your keyboard */
+            "device": "STM32F411CE", /* Gives access to peripherals in Debugger view */
+            "configFiles": [
+                "/usr/share/openocd/scripts/board/st_nucleo_f4.cfg" /* Change this to the path of st_nucleo_f4.cfg */
+            ],
+            "runToEntryPoint": "main", /* Stops at the main function on entry */
+            "rtos": "ChibiOS", /* Provides debugging of threads */
+            "armToolchainPath": "/usr/bin/", /* Change this to the path of your GCC ARM toolchain */
+            "gdbPath": "gdb-multiarch", /* Change this to the path of an ARM capable GDB e.g. arm-none-eabi-gdb */
+            "preLaunchTask": "make" /* Run this task before every  */,
+        },
+        {
+            "type": "cortex-debug",
+            "request": "launch",
+            "name": "Debug launch ARM YAEMK J-Link",
+            "cwd": "${workspaceRoot}",
+            "executable": ".build/karlk90_yaemk_koy.elf",
+            "device": "STM32F303CC",
+            "svdFile": "STM32F303.svd",
+            "serverpath": "/opt/SEGGER/JLink/JLinkGDBServerCLExe",
+            "servertype": "jlink",
+            "interface": "swd",
+   //         "runToMain": true,
+            "armToolchainPath": "/usr/bin/",
+            "gdbPath": "gdb-multiarch",
+            "preLaunchTask": "make",
+            "rtos": "ChibiOS",
+        },
+        {
+            "type": "cortex-debug",
+            "request": "attach",
+            "name": "Debug attach ARM YAEMK J-Link",
+            "cwd": "${workspaceRoot}",
+            "executable": ".build/karlk90_yaemk_koy.elf",
+            "device": "STM32F303CC",
+            "svdFile": "STM32F303.svd",
+            "serverpath": "/opt/SEGGER/JLink/JLinkGDBServerCLExe",
+            "servertype": "jlink",
+            "interface": "swd",
+   //         "runToMain": true,
+            "armToolchainPath": "/usr/bin/",
+            "gdbPath": "gdb-multiarch",
+            "preLaunchTask": "make",
+            "rtos": "ChibiOS",
+        },
+        {
+            "type": "cortex-debug",
+            "request": "launch",
+            "name": "Debug launch RISC-V DZZY J-Link",
+            "cwd": "${workspaceRoot}",
+            "executable": ".build/karlk90_dzzy_default.elf",
+            "device": "GD32VF103CBT6",
+            "serverpath": "/usr/bin/JLinkGDBServerCLExe",
+            "servertype": "jlink",
+            "interface": "jtag",
+            // "runToMain": false,
+            // "armToolchainPath": "/usr/bin/",
+            "gdbPath": "riscv32-unknown-elf-gdb",
+            "preLaunchTask": "make"
+        },
+        {
+            "type": "cortex-debug",
+            "request": "attach",
+            "name": "Debug Attach RISC-V YAEMK J-Link",
+            "cwd": "${workspaceRoot}",
+            "executable": ".build/karlk90_yaemk_koy.elf",
+            "device": "GD32VF103CBT6",
+            "serverpath": "/opt/SEGGER/JLink/JLinkGDBServerCLExe",
+            "servertype": "jlink",
+            "interface": "jtag",
+            "armToolchainPath": "/opt/riscv/",
+            "gdbPath": "riscv64-unknown-elf-gdb",
+            "preLaunchTask": "make"
+        },
+        {
+            "type": "gdb",
+            "request": "launch",
+            "name": "Launch QMK Tests",
+            "target": "./.build/test/debounce_sym_auto_eager_pk.elf",
+            "cwd": "${workspaceRoot}",
+            "valuesFormatting": "parseText",
+            "preLaunchTask": "make debounce test"
+        },
+       /* {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Launch QMK Test LLDB",
+            "program": "./.build/test/basic.elf",
+            "cwd": "${workspaceRoot}",
+        }*/
+    ]
+}
