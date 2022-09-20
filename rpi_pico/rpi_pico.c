@@ -20,6 +20,10 @@
 #    include "qp.h"
 #    include "karlk90.qgf.h"
 #    include "iosevka11.qff.h"
+
+#define LCD_CS_PIN GP17
+#define LCD_DC_PIN GP16
+#define LCD_RST_PIN GP20
 static painter_device_t       display;
 static painter_image_handle_t image;
 static painter_font_handle_t  font;
@@ -28,13 +32,14 @@ static painter_font_handle_t  font;
 void keyboard_post_init_user(void) {
     debug_enable = true;
 #ifdef QUANTUM_PAINTER_ENABLE
-    display = qp_ili9341_make_spi_device(240, 320, GP17, GP16, GP20, 8, 0);
+    display = qp_st7789_make_spi_device(240, 240, LCD_CS_PIN, LCD_DC_PIN, LCD_RST_PIN, 2, 3);
+    // display = qp_ili9341_make_spi_device(240, 320, LCD_CS_PIN, LCD_DC_PIN, LCD_RST_PIN, 2, 0);
     qp_init(display, QP_ROTATION_0); // Initialise the display
     qp_power(display, true);
     image = qp_load_image_mem(gfx_karlk90);
     if (image != NULL) {
         qp_drawimage(display, 0, 0, image);
-        // qp_flush(display);
+        qp_flush(display);
     }
     font = qp_load_font_mem(font_iosevka11);
     if (font != NULL) {
@@ -52,7 +57,7 @@ void housekeeping_task_user(void) {
     if (timer_elapsed32(last_draw) > 33) { // Throttle to 30fps
         last_draw = timer_read32();
         // Draw 8px-wide rainbow down the left side of the display
-        for (int i = 240; i < 319; ++i) {
+        for (int i = 240; i < 320; ++i) {
             qp_line(display, 0, i, 239, i, i, 255, 255);
         }
         qp_flush(display);
@@ -60,36 +65,3 @@ void housekeeping_task_user(void) {
 }
 
 void board_init(void) {}
-
-// void keyboard_post_init_user(void) {
-//     debug_enable   = true;
-//     debug_matrix   = true;
-//     debug_keyboard = true;
-//     debug_mouse    = true;
-// }
-
-// void raw_hid_receive(uint8_t *data, uint8_t length) {
-//     dprintln("GOT RAW HID");
-//     raw_hid_send(data, length);
-// }
-
-// void housekeeping_task_user(void) {
-//     static uint16_t start = 0;
-//     if (timer_elapsed(start) > 1000) {
-//         // TRICE(Id(37873), "Hallo Kevin %d\n", start);
-//         // triceTriggerTransmit();
-//         // TriceTransfer();
-//         start = timer_read();
-//         if (host_keyboard_led_state().caps_lock) {
-//             dprintln("CAPS!");
-//         } else {
-//             dprintln("NO CAPS!");
-//         }
-//         //     dprintf("Fresh into eeprom %d\n", (uint8_t)start);
-//         //     eeconfig_update_debug((uint8_t)start);
-//         //     dprintf("Fresh from eeprom %d\n", (uint8_t)eeconfig_read_debug());
-//     }
-// }
-uint32_t ReadUs32(void) {
-    return chSysGetRealtimeCounterX();
-};

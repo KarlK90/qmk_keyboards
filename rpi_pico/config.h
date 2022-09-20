@@ -16,12 +16,6 @@
 
 #pragma once
 
-/* USB Device descriptor parameter */
-#define VENDOR_ID    0xFEED
-#define PRODUCT_ID   0x6465
-#define DEVICE_VER   0x0001
-#define MANUFACTURER QMK
-
 /* key matrix size */
 #define MATRIX_ROWS 1
 #define MATRIX_COLS 1
@@ -43,7 +37,7 @@
 #define TAPPING_TERM 500
 
 
-#define PRODUCT Onekey Raspberry Pi Pico RP2040
+// #define PRODUCT "Onekey Raspberry Pi Pico RP2040"
 #define MATRIX_COL_PINS \
     { GP4 }
 #define MATRIX_ROW_PINS \
@@ -55,8 +49,6 @@
 #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_TIMEOUT 500U
 
 #define RGB_DI_PIN A1
-
-#define TRANSIENT_EEPROM_SIZE 4096
 
 #define SPI_DRIVER SPID0
 #define SPI_SCK_PIN GP18
