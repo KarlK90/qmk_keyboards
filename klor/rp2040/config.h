@@ -5,15 +5,16 @@
 
 #include "config_common.h"
 
-#define RP2040_BOOTLOADER_DOUBLE_TAP_RESET
-#define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_TIMEOUT 500U
-
 /* audio support */
 #undef AUDIO_PIN
 //#define AUDIO_PIN GP9
 
 /* i2c */
 #define I2C_DRIVER I2CD2
+#define I2C1_CLOCK_SPEED 1000000
 
-/* communication between sides */
-#define SERIAL_PIO_USE_PIO1
+/* split communication */
+#define SERIAL_USART_SPEED 460800
+
+/* crc */
+#define CRC8_OPTIMIZE_SPEED

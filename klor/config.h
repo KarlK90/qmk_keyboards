@@ -23,8 +23,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define VENDOR_ID       0x3A3C
 #define PRODUCT_ID      0x0001
 #define DEVICE_VER      0x0001
-#define MANUFACTURER    GEIST
-#define PRODUCT         KLOR
+#define MANUFACTURER    "GEIST"
+#define PRODUCT         "KLOR"
 
 
 /* key matrix size */
@@ -37,9 +37,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MATRIX_ROW_PINS { C6, D7, E6, B4 }
 #define MATRIX_COL_PINS { F6, F7, B1, B3, B2, B6 }
 #define DIODE_DIRECTION COL2ROW
-
-#define UNUSED_PINS
-
 
 /* audio support */
 #define AUDIO_VOICES
@@ -63,9 +60,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define USE_SERIAL
 /* serial.c configuration for split keyboard */
 #define SOFT_SERIAL_PIN D2
-//#define SPLIT_LAYER_STATE_ENABLE
+#define SPLIT_LAYER_STATE_ENABLE
 //#define SPLIT_USB_DETECT
-#define SERIAL_USE_MULTI_TRANSACTION
 
 
 /* rgb led support */
@@ -77,12 +73,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #ifdef HAPTIC_ENABLE
 #    define FB_ERM_LRA 1
-#    define FB_BRAKEFACTOR 3 // For 1x:0, 2x:1, 3x:2, 4x:3, 6x:4, 8x:5, 16x:6, Disable Braking:7 
-#    define FB_LOOPGAIN 1 // For  Low:0, Medium:1, High:2, Very High:3 
+#    define FB_BRAKEFACTOR 3 // For 1x:0, 2x:1, 3x:2, 4x:3, 6x:4, 8x:5, 16x:6, Disable Braking:7
+#    define FB_LOOPGAIN 1 // For  Low:0, Medium:1, High:2, Very High:3
 #    define RATED_VOLTAGE 2
 #    define V_PEAK 2.8
-#    define V_RMS 2.0 
-#    define F_LRA 150 // resonance freq 
+#    define V_RMS 2.0
+#    define F_LRA 150 // resonance freq
 #    define DRV_GREETING       alert_750ms
 #endif
 
@@ -99,7 +95,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #    define STARTUP_SONG SONG(PREONIC_SOUND)
 #    define DEFAULT_LAYER_SONGS \
         { SONG(QWERTY_SOUND), SONG(COLEMAK_SOUND), SONG(DVORAK_SOUND) }
-#endif 
+#endif
 
 
 #ifdef RGB_MATRIX_ENABLE
@@ -111,5 +107,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #    define RGB_MATRIX_STARTUP_VAL RGB_MATRIX_MAXIMUM_BRIGHTNESS
 #    define RGB_DISABLE_WHEN_USB_SUSPENDED
 #    define RGB_MATRIX_KEYPRESSES
-#endif 
+#endif
 
