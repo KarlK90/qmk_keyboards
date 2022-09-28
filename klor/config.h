@@ -65,7 +65,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 /* rgb led support */
-#define RGB_DI_PIN D3
+#define RGB_DI_PIN 17U
 #define RGBLED_NUM 42
 #define RGBLED_SPLIT { 21, 21 }
 #define RGBLIGHT_ANIMATIONS
@@ -108,4 +108,3 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #    define RGB_DISABLE_WHEN_USB_SUSPENDED
 #    define RGB_MATRIX_KEYPRESSES
 #endif
-
