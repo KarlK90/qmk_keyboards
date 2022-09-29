@@ -65,7 +65,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 /* rgb led support */
-#define RGB_DI_PIN 17U
+#define GP17 17U
+#define RGB_DI_PIN GP17
 #define RGBLED_NUM 42
 #define RGBLED_SPLIT { 21, 21 }
 #define RGBLIGHT_ANIMATIONS
