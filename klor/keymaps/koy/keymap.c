@@ -68,7 +68,6 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 }
 
 void keyboard_post_init_user(void) {
-  setPinInputLow(B5);
   // debug_config.enable = true;
   // debug_config.matrix = true;
 }
