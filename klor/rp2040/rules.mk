@@ -11,8 +11,7 @@ LTO_ENABLE = yes
 SERIAL_DRIVER = vendor
 WS2812_DRIVER = vendor
 
-# Audio currently doesn't work with the RP2040
-AUDIO_ENABLE = no
-
 # convert to rp2040 pinout. if you use the kb2040 comment this line and uncomment the second line
 CONVERT_TO = kb2040
+
+LDFLAGS += -Wl,--defsym=FLASH_LEN=16384k

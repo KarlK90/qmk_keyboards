@@ -21,14 +21,9 @@
 
 #pragma once
 
-/* #define CH_CFG_ST_RESOLUTION 16 */
+#define CH_CFG_ST_RESOLUTION 16
 
-/* #define CH_CFG_ST_FREQUENCY 10000 */
-
-/* #define CH_DBG_ENABLE_STACK_CHECK TRUE */
-/* #define CH_DBG_ENABLE_ASSERTS TRUE */
-/* #define CH_DBG_ENABLE_CHECKS TRUE */
-/* #define CH_DBG_SYSTEM_STATE_CHECK FALSE */
-#define CH_CFG_USE_REGISTRY TRUE
+#define CH_CFG_ST_FREQUENCY 10000
 
 #include_next <chconf.h>
+

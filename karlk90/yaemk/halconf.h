@@ -33,10 +33,6 @@
 
 #define HAL_USE_SPI FALSE
 
-#if defined(SIO)
-#define HAL_USE_SIO TRUE
-#else
 #define HAL_USE_SERIAL TRUE
-#endif
 
 #include_next <halconf.h>
