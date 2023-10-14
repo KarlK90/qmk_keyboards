@@ -1,0 +1,5 @@
+CONSOLE_ENABLE = yes
+CUSTOM_MATRIX = lite
+DEBUG_MATRIX_SCAN_RATE_ENABLE = no
+
+SRC += spi_master.c
