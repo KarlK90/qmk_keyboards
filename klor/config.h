@@ -18,11 +18,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #pragma once
 
 /* USB Device descriptor parameter */
-
 #define MOUSE_EXTENDED_REPORT
 
 /* split communication */
-#define SPLIT_HAND_PIN GP9
 #define SERIAL_USART_FULL_DUPLEX
 #define SERIAL_USART_TX_PIN GP0
 #define SERIAL_USART_RX_PIN GP1
@@ -34,8 +32,3 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 /* crc */
 #define CRC8_OPTIMIZE_SPEED
-
-/* Serial settings */
-#define SPLIT_LAYER_STATE_ENABLE
-
-#define CHORDAL_HOLD

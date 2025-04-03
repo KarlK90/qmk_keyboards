@@ -16,8 +16,8 @@
         ]
     },
     "features": {
-        "console": true,
         "combo": false,
+        "console": true,
         "debug_matrix_scan_rate": true,
         "deferred_exec": false,
         "dynamic_macro": false,
@@ -43,13 +43,23 @@
                 ]
             }
         },
+        "handedness": {
+            "pin": "GP9"
+        },
+        "serial": {
+            "driver": "vendor"
+        },
         "transport": {
             "protocol": "serial",
-            "sync_matrix_state": true,
+            "sync": {
+                "layer_state": true,
+                "matrix_state": true
+            },
             "watchdog": true
         }
     },
     "tapping": {
+        "chordal_hold": true,
         "hold_on_other_key_press_per_key": true,
         "permissive_hold_per_key": true,
         "term": 160
