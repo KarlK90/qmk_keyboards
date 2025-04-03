@@ -20,7 +20,7 @@ enum Encoder {
 const uint16_t keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT( \
                       DE_K          , DE_DOT        , DE_O          , DE_COMM       , DE_Y          ,                                 DE_V          , DE_G          , DE_C          , DE_L          , DE_SS         ,                \
-     KC_TAB         , LGUI_T(DE_H)  , LALT_T(DE_A)  , LCTL_T(DE_E)  , LT(_SYM,DE_I) , DE_U          ,                                 DE_D          , LT(_SYM,DE_T) , RCTL_T(DE_R)  , RALT_T(DE_N)  , RGUI_T(DE_S)  , DE_F          ,\
+     KC_TAB         , LGUI_T(DE_H)  , LALT_T(DE_A)  , LCTL_T(DE_E)  , LT(_SYM, DE_I), DE_U          ,                                 DE_D          , LT(_SYM, DE_T), RCTL_T(DE_R)  , RALT_T(DE_N)  , RGUI_T(DE_S)  , DE_F          ,\
      LCTL(DE_CIRC)  , DE_X          , DE_Q          , DE_ADIA       , DE_UDIA       , DE_ODIA       , KC_MUTE       , KC_MPLY       , DE_B          , DE_P          , DE_W          , DE_M          , DE_J          , DE_Z          ,\
                                                       KC_ESC        , LSFT_T(KC_SPC), KC_BSPC       , MO(_NAV)      , MO(_NAV)      , KC_ENT        , RSFT_T(KC_SPC), KC_TAB       \
   ),
@@ -38,16 +38,10 @@ const uint16_t keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [_FN] = LAYOUT( \
                       _______       , KC_BTN1       , KC_MS_U       , KC_BTN2       , KC_PSCR       ,                                 _______       , KC_F7         , KC_F8         , KC_F9         , _______       ,                \
-    _______         , _______       , KC_MS_L       , KC_MS_D       , KC_MS_R       , _______       ,                                 _______       , KC_F4         , KC_F5         , KC_F6         , _______       , _______       ,\
-    _______         , _______       , _______       , _______       , _______       , _______       , _______       , _______       , _______       , KC_F1         , KC_F2         , KC_F3         , _______       , _______       ,\
+    _______         , _______       , LGUI(KC_PGUP) , KC_MS_D       , LGUI(KC_PGDN) , _______       ,                                 _______       , KC_F4         , KC_F5         , KC_F6         , _______       , _______       ,\
+    QK_BOOT         , _______       , _______       , _______       , _______       , _______       , _______       , _______       , _______       , KC_F1         , KC_F2         , KC_F3         , _______       , _______       ,\
                                                       KC_MPLY       , _______       , _______       , _______       , _______       , _______       , _______       , KC_AUDIO_MUTE \
   ),
-/*  [_RGB] = LAYOUT( \
-                      _______       , _______       , _______       , _______       , _______       , _______         _______       , _______       , RGB_HUI       , RGB_HUD       , RGB_SAI       , RGB_SAD       , _______       ,\
-    _______         , _______       , _______       , _______       , _______       , _______       , _______         _______       , _______       , RGB_MOD       , RGB_RMOD      , RGB_SPI       , RGB_SPD       , _______       ,\
-    _______         , _______       , _______       , _______       , _______       , _______       , _______       , _______       , _______       , RGB_VAI       , RGB_VAD       , _______       , _______       , _______       ,\
-                                                      _______       , _______       , _______       , _______       , _______       , _______       , _______       , _______ \
-  )*/
 };
 
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
@@ -68,36 +62,33 @@ void keyboard_post_init_user(void) {
     // debug_config.matrix = true;
 }
 
-bool caps_word_press_user(uint16_t keycode) {
-    switch (keycode) {
-        // Keycodes that continue Caps Word, with shift applied.
-        case KC_A ... KC_Z:
-        case DE_ADIA:
-        case DE_UDIA:
-        case DE_ODIA:
-            add_weak_mods(MOD_BIT(KC_LSFT)); // Apply shift to next key.
-            return true;
-
-        // Keycodes that continue Caps Word, without shifting.
-        case KC_1 ... KC_0:
-        case KC_BSPC:
-        case KC_DEL:
-        case DE_UNDS:
-        case DE_MINS:
-            return true;
-
-        default:
-            return false; // Deactivate Caps Word.
-    }
-}
-
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LSFT_T(KC_SPC):
-            return true;
         case RSFT_T(KC_SPC):
             return true;
         default:
             return false;
     }
+}
+
+bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t *tap_hold_record, uint16_t other_keycode, keyrecord_t *other_record) {
+    // Allow hold between any pair of mod-tap keys.
+    // if (IS_QK_MOD_TAP(tap_hold_keycode) && IS_QK_MOD_TAP(other_keycode)) {
+    //     return true;
+    // }
+
+    if ((IS_QK_LAYER_TAP(tap_hold_keycode) && IS_QK_MOMENTARY(other_keycode)) || (IS_QK_LAYER_TAP(other_keycode) && IS_QK_MOMENTARY(tap_hold_keycode))) {
+        return true;
+    }
+
+    // Exceptionally allow some one-handed chords for hotkeys.
+    switch (tap_hold_keycode) {
+        case LSFT_T(KC_SPC):
+        case RSFT_T(KC_SPC):
+            return true;
+    }
+
+    // Otherwise defer to the opposite hands rule.
+    return get_chordal_hold_default(tap_hold_record, other_record);
 }
