@@ -92,3 +92,17 @@ bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t *tap_hold_record, u
     // Otherwise defer to the opposite hands rule.
     return get_chordal_hold_default(tap_hold_record, other_record);
 }
+
+uint16_t get_tap_flow_term(uint16_t keycode, keyrecord_t *record, uint16_t prev_keycode) {
+    switch (keycode) {
+        case LSFT_T(KC_SPC):
+        case RSFT_T(KC_SPC):
+        case MO(_NAV):
+            return 0;
+    }
+
+    if (is_tap_flow_key(keycode) && is_tap_flow_key(prev_keycode)) {
+        return TAP_FLOW_TERM;
+    }
+    return 0;
+}

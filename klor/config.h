@@ -19,6 +19,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 /* USB Device descriptor parameter */
 #define MOUSE_EXTENDED_REPORT
+#define TAP_FLOW_TERM 120
 
 /* split communication */
 #define SERIAL_USART_FULL_DUPLEX
