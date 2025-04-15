@@ -62,7 +62,8 @@
         "chordal_hold": true,
         "hold_on_other_key_press_per_key": true,
         "permissive_hold_per_key": true,
-        "term": 160
+        "term": 160,
+        "flow_tap_term": 120
     },
     "url": "https://github.com/GEIGEIGEIST/KLOR",
     "usb": {
