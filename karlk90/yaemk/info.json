@@ -1,11 +1,178 @@
 {
-    "keyboard_name": "YAEMK",
-    "url": "https://karlk90.github.io/yaemk-split-kb/",
-    "maintainer": "karlk90",
     "manufacturer": "karlk90",
+    "keyboard_name": "YAEMK",
+    "maintainer": "karlk90",
+    "build": {
+        "debounce_type": "asym_eager_defer_pk",
+        "lto": true
+    },
+    "caps_word": {
+        "both_shifts_turns_on": true,
+        "enabled": true
+    },
+    "debounce": 10,
+    "diode_direction": "COL2ROW",
+    "eeprom": {
+        "driver": "i2c"
+    },
+    "encoder": {
+        "enabled": true,
+        "rotary": [
+            {"pin_a": "A3", "pin_b": "A4", "resolution": 2}
+        ]
+    },
+    "features": {
+        "caps_word": true,
+        "console": false,
+        "debug_matrix_scan_rate": true,
+        "encoder": true,
+        "encoder_map": true,
+        "extrakey": true,
+        "mousekey": true,
+        "nkro": true,
+        "oled": true,
+        "rgb_matrix": true
+    },
+    "matrix_pins": {
+        "cols": ["B15", "B14", "B13", "B2", "B1", "B0", "A7", "A2"],
+        "rows": ["A8", "B12", "A6", "A5", "A1"]
+    },
+    "mouse_key": {
+        "enabled": true
+    },
+    "mousekey": {
+        "delay": 0,
+        "interval": 16,
+        "max_speed": 6,
+        "time_to_max": 64,
+        "wheel_delay": 0
+    },
+    "rgb_matrix": {
+        "driver": "ws2812",
+        "hue_steps": 6,
+        "max_brightness": 255,
+        "sat_steps": 6,
+        "speed_steps": 6,
+        "split_count": [40, 40],
+        "val_steps": 6,
+        "led_count": 80,
+    },
+    "split": {
+        "enabled": true,
+        "encoder": {
+            "right": {
+                "rotary": [
+                    {"pin_a": "A4", "pin_b": "A3", "resolution": 2}
+                ]
+            }
+        },
+        "handedness": {
+            "pin": "C13"
+        },
+        "matrix_pins": {
+            "right": {
+                "cols": ["A2", "A7", "B0", "B1", "B2", "B13", "B14", "B15"]
+            }
+        },
+        "serial": {
+            "driver": "usart"
+        },
+        "transport": {
+            "protocol": "serial",
+            "sync": {
+                "layer_state": true,
+                "matrix_state": true
+            }
+        }
+    },
+    "tapping": {
+        "hold_on_other_key_press_per_key": true,
+        "term": 160,
+        "chordal_hold": true,
+        "flow_tap_term": 120
+    },
+    "url": "https://karlk90.github.io/yaemk-split-kb/",
     "usb": {
-        "vid": "0x4B4B",
+        "device_version": "1.2.0",
         "pid": "0x5941",
-        "device_version": "1.2.0"
+        "vid": "0x4B4B"
+    },
+    "ws2812": {
+        "driver": "pwm",
+        "pin": "A10"
+    },
+    "layouts": {
+        "LAYOUT": {
+            "layout": [
+                {"label": "L00", "matrix": [0, 0], "x": 0, "y": 0},
+                {"label": "L01", "matrix": [0, 1], "x": 1, "y": 0},
+                {"label": "L02", "matrix": [0, 2], "x": 2, "y": 0},
+                {"label": "L03", "matrix": [0, 3], "x": 3, "y": 0},
+                {"label": "L04", "matrix": [0, 4], "x": 4, "y": 0},
+                {"label": "L05", "matrix": [0, 5], "x": 5, "y": 0},
+                {"label": "L06", "matrix": [0, 6], "x": 6, "y": 0},
+                {"label": "R01", "matrix": [5, 1], "x": 7, "y": 0},
+                {"label": "R02", "matrix": [5, 2], "x": 8, "y": 0},
+                {"label": "R03", "matrix": [5, 3], "x": 9, "y": 0},
+                {"label": "R04", "matrix": [5, 4], "x": 10, "y": 0},
+                {"label": "R05", "matrix": [5, 5], "x": 11, "y": 0},
+                {"label": "R06", "matrix": [5, 6], "x": 12, "y": 0},
+                {"label": "R07", "matrix": [5, 7], "x": 13, "y": 0},
+                {"label": "L10", "matrix": [1, 0], "x": 14, "y": 0},
+                {"label": "L11", "matrix": [1, 1], "x": 15, "y": 0},
+                {"label": "L12", "matrix": [1, 2], "x": 16, "y": 0},
+                {"label": "L13", "matrix": [1, 3], "x": 17, "y": 0},
+                {"label": "L14", "matrix": [1, 4], "x": 18, "y": 0},
+                {"label": "L15", "matrix": [1, 5], "x": 19, "y": 0},
+                {"label": "L16", "matrix": [1, 6], "x": 20, "y": 0},
+                {"label": "R11", "matrix": [6, 1], "x": 21, "y": 0},
+                {"label": "R12", "matrix": [6, 2], "x": 22, "y": 0},
+                {"label": "R13", "matrix": [6, 3], "x": 23, "y": 0},
+                {"label": "R14", "matrix": [6, 4], "x": 24, "y": 0},
+                {"label": "R15", "matrix": [6, 5], "x": 25, "y": 0},
+                {"label": "R16", "matrix": [6, 6], "x": 26, "y": 0},
+                {"label": "R17", "matrix": [6, 7], "x": 27, "y": 0},
+                {"label": "L20", "matrix": [2, 0], "x": 28, "y": 0},
+                {"label": "L21", "matrix": [2, 1], "x": 29, "y": 0},
+                {"label": "L22", "matrix": [2, 2], "x": 30, "y": 0},
+                {"label": "L23", "matrix": [2, 3], "x": 31, "y": 0},
+                {"label": "L24", "matrix": [2, 4], "x": 32, "y": 0},
+                {"label": "L25", "matrix": [2, 5], "x": 33, "y": 0},
+                {"label": "L26", "matrix": [2, 6], "x": 34, "y": 0},
+                {"label": "R21", "matrix": [7, 1], "x": 35, "y": 0},
+                {"label": "R22", "matrix": [7, 2], "x": 36, "y": 0},
+                {"label": "R23", "matrix": [7, 3], "x": 37, "y": 0},
+                {"label": "R24", "matrix": [7, 4], "x": 38, "y": 0},
+                {"label": "R25", "matrix": [7, 5], "x": 39, "y": 0},
+                {"label": "R26", "matrix": [7, 6], "x": 40, "y": 0},
+                {"label": "R27", "matrix": [7, 7], "x": 41, "y": 0},
+                {"label": "L30", "matrix": [3, 0], "x": 42, "y": 0},
+                {"label": "L31", "matrix": [3, 1], "x": 43, "y": 0},
+                {"label": "L32", "matrix": [3, 2], "x": 44, "y": 0},
+                {"label": "L33", "matrix": [3, 3], "x": 45, "y": 0},
+                {"label": "L34", "matrix": [3, 4], "x": 46, "y": 0},
+                {"label": "L35", "matrix": [3, 5], "x": 47, "y": 0},
+                {"label": "L36", "matrix": [3, 6], "x": 48, "y": 0},
+                {"label": "L37", "matrix": [3, 7], "x": 49, "y": 0},
+                {"label": "R30", "matrix": [8, 0], "x": 50, "y": 0},
+                {"label": "R31", "matrix": [8, 1], "x": 51, "y": 0},
+                {"label": "R32", "matrix": [8, 2], "x": 52, "y": 0},
+                {"label": "R33", "matrix": [8, 3], "x": 53, "y": 0},
+                {"label": "R34", "matrix": [8, 4], "x": 54, "y": 0},
+                {"label": "R35", "matrix": [8, 5], "x": 55, "y": 0},
+                {"label": "R36", "matrix": [8, 6], "x": 56, "y": 0},
+                {"label": "R37", "matrix": [8, 7], "x": 57, "y": 0},
+                {"label": "L43", "matrix": [4, 3], "x": 58, "y": 0},
+                {"label": "L44", "matrix": [4, 4], "x": 59, "y": 0},
+                {"label": "L45", "matrix": [4, 5], "x": 60, "y": 0},
+                {"label": "L46", "matrix": [4, 6], "x": 61, "y": 0},
+                {"label": "L47", "matrix": [4, 7], "x": 62, "y": 0},
+                {"label": "R40", "matrix": [9, 0], "x": 63, "y": 0},
+                {"label": "R41", "matrix": [9, 1], "x": 64, "y": 0},
+                {"label": "R42", "matrix": [9, 2], "x": 65, "y": 0},
+                {"label": "R43", "matrix": [9, 3], "x": 66, "y": 0},
+                {"label": "R44", "matrix": [9, 4], "x": 67, "y": 0}
+            ]
+        }
     }
 }

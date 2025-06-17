@@ -1,0 +1,4 @@
+{
+    "board": "SIPEED_LONGAN_NANO",
+    "bootloader": "gd32v-dfu",
+}

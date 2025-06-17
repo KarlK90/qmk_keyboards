@@ -96,7 +96,6 @@ bool caps_word_press_user(uint16_t keycode) {
     }
 }
 
-#if defined(HOLD_ON_OTHER_KEY_PRESS_PER_KEY)
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LSFT_T(KC_SPC):
@@ -107,7 +106,41 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
             return false;
     }
 }
-#endif
+
+bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t *tap_hold_record, uint16_t other_keycode, keyrecord_t *other_record) {
+    // Allow hold between any pair of mod-tap keys.
+    // if (IS_QK_MOD_TAP(tap_hold_keycode) && IS_QK_MOD_TAP(other_keycode)) {
+    //     return true;
+    // }
+
+    if ((IS_QK_LAYER_TAP(tap_hold_keycode) && IS_QK_MOMENTARY(other_keycode)) || (IS_QK_LAYER_TAP(other_keycode) && IS_QK_MOMENTARY(tap_hold_keycode))) {
+        return true;
+    }
+
+    // Exceptionally allow some one-handed chords for hotkeys.
+    switch (tap_hold_keycode) {
+        case LSFT_T(KC_SPC):
+        case RSFT_T(KC_SPC):
+            return true;
+    }
+
+    // Otherwise defer to the opposite hands rule.
+    return get_chordal_hold_default(tap_hold_record, other_record);
+}
+
+uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t *record, uint16_t prev_keycode) {
+    switch (keycode) {
+        case LSFT_T(KC_SPC):
+        case RSFT_T(KC_SPC):
+        case MO(_NAV):
+            return 0;
+    }
+
+    if (is_flow_tap_key(keycode) && is_flow_tap_key(prev_keycode)) {
+        return FLOW_TAP_TERM;
+    }
+    return 0;
+}
 
 #if defined(OLED_ENABLE)
 
