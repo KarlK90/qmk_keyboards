@@ -1,7 +1,6 @@
 #pragma once
 
 /* SPLIT CONFIG */
-#define USB_VBUS_PIN A9
 #define FORCED_SYNC_THROTTLE_MS 500
 
 /* CRC DRIVER */
@@ -68,8 +67,6 @@
 #define SERIAL_USART_RX_PIN B11
 #define SERIAL_USART_DRIVER SD3
 #define SERIAL_USART_FULL_DUPLEX
-#define SERIAL_USART_TIMEOUT 5
-#define SERIAL_USART_CR2 0x0  // 1 stop bit is enough
 
 /* I2C DRIVER */
 #define EEPROM_I2C_CAT24C512

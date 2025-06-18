@@ -142,6 +142,7 @@ uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t *record, uint16_t prev_
     return 0;
 }
 
+
 #if defined(OLED_ENABLE)
 
 #    define w_val(str, val)                         \
