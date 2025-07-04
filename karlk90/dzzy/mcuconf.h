@@ -17,21 +17,6 @@
 
 #pragma once
 
-#if defined(__arm__)
-
-/* STM32F303 */
-#include_next <mcuconf.h>
-
-#undef STM32_PPRE2
-#define STM32_PPRE2 STM32_PPRE2_DIV1
-
-#undef STM32_RTCSEL
-#define STM32_RTCSEL STM32_RTCSEL_NOCLOCK
-
-#undef STM32_SPI_USE_SPI2
-#define STM32_SPI_USE_SPI2                  TRUE
-#elif defined(__riscv)
-
 /* GD32VF103 */
 #define GD32VF103_MCUCONF
 #define GD32VF103CB
@@ -316,5 +301,3 @@
  * WDG driver system settings.
  */
 #define GD32_WDG_USE_FWDGT                  FALSE
-
-#endif
