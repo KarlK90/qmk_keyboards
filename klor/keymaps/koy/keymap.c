@@ -37,17 +37,17 @@ const uint16_t keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                       _______       , _______       , _______       , _______       , _______       , _______       , KC_0          , _______       \
   ),
   [_FN] = LAYOUT( \
-                      _______       , KC_BTN1       , KC_MS_U       , KC_BTN2       , KC_PSCR       ,                                 _______       , KC_F7         , KC_F8         , KC_F9         , _______       ,                \
-    _______         , _______       , LGUI(KC_PGUP) , KC_MS_D       , LGUI(KC_PGDN) , _______       ,                                 _______       , KC_F4         , KC_F5         , KC_F6         , _______       , _______       ,\
+                      _______       , _______       , _______       , _______       , KC_PSCR       ,                                 _______       , KC_F7         , KC_F8         , KC_F9         , _______       ,                \
+    _______         , _______       , LGUI(KC_PGUP) , _______       , LGUI(KC_PGDN) , _______       ,                                 _______       , KC_F4         , KC_F5         , KC_F6         , _______       , _______       ,\
     QK_BOOT         , _______       , _______       , _______       , _______       , _______       , _______       , _______       , _______       , KC_F1         , KC_F2         , KC_F3         , _______       , _______       ,\
                                                       KC_MPLY       , _______       , _______       , _______       , _______       , _______       , _______       , KC_AUDIO_MUTE \
   ),
 };
 
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
-    [_BASE] = { ENCODER_CCW_CW(KC_WH_U, KC_WH_D), ENCODER_CCW_CW(KC_WH_U, KC_WH_D) },
+    [_BASE] = { ENCODER_CCW_CW(MS_WHLU, MS_WHLD), ENCODER_CCW_CW(MS_WHLU, MS_WHLD) },
     [_SYM]  = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_VOLD, KC_VOLU) },
-    [_NAV]  = { ENCODER_CCW_CW(KC_WH_R, KC_WH_L), ENCODER_CCW_CW(KC_WH_R, KC_WH_L) },
+    [_NAV]  = { ENCODER_CCW_CW(MS_WHLR, MS_WHLL), ENCODER_CCW_CW(MS_WHLR, MS_WHLL) },
     [_FN]   = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) }
 };
 
