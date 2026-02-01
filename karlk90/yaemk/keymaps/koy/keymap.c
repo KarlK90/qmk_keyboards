@@ -44,25 +44,25 @@ const uint16_t keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                       _______       , _______       , _______       , _______       , _______       , _______       , _______       , KC_0          , _______       , _______ \
   ),
    [_FN] = LAYOUT( \
-    _______         , _______       , KC_ACL0       , KC_ACL1       , KC_ACL2       , QK_BOOTLOADER , _______       ,                                 _______       , QK_BOOTLOADER , KC_F10        , KC_F11        , KC_F12        , _______       , _______       ,\
-    _______         , _______       , KC_BTN1       , KC_MS_U       , KC_BTN2       , KC_PSCR       , _______       ,                                 _______       , _______       , KC_F7         , KC_F8         , KC_F9         , _______       , _______       ,\
-    _______         , _______       , KC_MS_L       , KC_MS_D       , KC_MS_R       , _______       , _______       ,                                 _______       , _______       , KC_F4         , KC_F5         , KC_F6         , _______       , _______       ,\
+    _______         , _______       , MS_ACL0       , MS_ACL1       , MS_ACL2       , QK_BOOTLOADER , _______       ,                                 _______       , QK_BOOTLOADER , KC_F10        , KC_F11        , KC_F12        , _______       , _______       ,\
+    _______         , _______       , MS_BTN1       , MS_UP         , MS_BTN2       , KC_PSCR       , _______       ,                                 _______       , _______       , KC_F7         , KC_F8         , KC_F9         , _______       , _______       ,\
+    _______         , _______       , MS_LEFT       , MS_DOWN       , MS_RGHT       , _______       , _______       ,                                 _______       , _______       , KC_F4         , KC_F5         , KC_F6         , _______       , _______       ,\
     _______         , _______       , _______       , _______       , _______       , _______       , _______       , _______       , _______       , _______       , _______       , KC_F1         , KC_F2         , KC_F3         , _______       , _______       ,\
                                                       KC_MPLY       , _______       , _______       , _______       , _______       , _______       , _______       , _______       , _______       , KC_AUDIO_MUTE \
   ),
   [_RGB] = LAYOUT( \
-    _______         , _______       , _______       , _______       , _______       , _______       , _______       ,                                 _______       , _______       , RGB_TOG       , RGB_M_SW      , _______       , _______       , _______       ,\
-    _______         , _______       , _______       , _______       , _______       , _______       , _______       ,                                 _______       , _______       , RGB_HUI       , RGB_HUD       , RGB_SAI       , RGB_SAD       , _______       ,\
-    _______         , _______       , _______       , _______       , _______       , _______       , _______       ,                                 _______       , _______       , RGB_MOD       , RGB_RMOD      , RGB_SPI       , RGB_SPD       , _______       ,\
-    _______         , _______       , _______       , _______       , _______       , _______       , _______       , _______       , _______       , _______       , _______       , RGB_VAI       , RGB_VAD       , _______       , _______       , _______       ,\
+    _______         , _______       , _______       , _______       , _______       , _______       , _______       ,                                 _______       , _______       , RM_TOGG       , RGB_M_SW      , _______       , _______       , _______       ,\
+    _______         , _______       , _______       , _______       , _______       , _______       , _______       ,                                 _______       , _______       , RM_HUEU       , RM_HUED       , RM_SATU       , RM_SATD       , _______       ,\
+    _______         , _______       , _______       , _______       , _______       , _______       , _______       ,                                 _______       , _______       , RM_NEXT       , RM_PREV       , RM_SPDU       , RM_SPDD       , _______       ,\
+    _______         , _______       , _______       , _______       , _______       , _______       , _______       , _______       , _______       , _______       , _______       , RM_VALU       , RM_VALD       , _______       , _______       , _______       ,\
                                                       _______       , _______       , _______       , _______       , _______       , _______       , _______       , _______       , _______       , _______ \
   )
 };
 
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
-    [_BASE] = { ENCODER_CCW_CW(KC_WH_U, KC_WH_D), ENCODER_CCW_CW(KC_WH_U, KC_WH_D) },
+    [_BASE] = { ENCODER_CCW_CW(MS_WHLU, MS_WHLD), ENCODER_CCW_CW(MS_WHLU, MS_WHLD) },
     [_SYM]  = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_VOLD, KC_VOLU) },
-    [_NAV]  = { ENCODER_CCW_CW(KC_WH_R, KC_WH_L), ENCODER_CCW_CW(KC_WH_R, KC_WH_L) },
+    [_NAV]  = { ENCODER_CCW_CW(MS_WHLR, MS_WHLL), ENCODER_CCW_CW(MS_WHLR, MS_WHLL) },
     [_FN]   = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
     [_RGB]  = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) }
 };
@@ -99,7 +99,6 @@ bool caps_word_press_user(uint16_t keycode) {
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LSFT_T(KC_SPC):
-            return true;
         case RSFT_T(KC_SPC):
             return true;
         default:

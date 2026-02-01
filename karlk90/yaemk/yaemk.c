@@ -49,7 +49,7 @@ bool oled_task_user(void) {
 bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
 #if defined(RGB_MATRIX_ENABLE)
-        case RGB_TOG:
+        case RM_TOGG:
             if (record->event.pressed) {
                 switch (rgb_matrix_get_flags()) {
                     case LED_FLAG_ALL: {
