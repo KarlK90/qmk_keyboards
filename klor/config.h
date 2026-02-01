@@ -26,7 +26,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define SERIAL_USART_RX_PIN GP1
 #define SERIAL_USART_PIN_SWAP
 #define SERIAL_USART_SPEED (460800 * 2)
-#define SERIAL_DEBUG
 
 #define MATRIX_UNSELECT_DRIVE_HIGH
 

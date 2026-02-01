@@ -1,5 +1,5 @@
 {
-    "manufacturer": "GEIST",
+    "manufacturer": "GEIST x KarlK90",
     "keyboard_name": "KLOR",
     "maintainer": "GEIST x KarlK90",
     "bootloader": "rp2040",
@@ -16,11 +16,8 @@
         ]
     },
     "features": {
-        "combo": false,
         "console": true,
         "debug_matrix_scan_rate": true,
-        "deferred_exec": false,
-        "dynamic_macro": false,
         "encoder": true,
         "encoder_map": true,
         "extrakey": true,
@@ -52,7 +49,6 @@
         "transport": {
             "protocol": "serial",
             "sync": {
-                "layer_state": true,
                 "matrix_state": true
             },
             "watchdog": true

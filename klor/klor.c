@@ -1,7 +1,8 @@
 #include <platform_deps.h>
 #include <gpio.h>
+#include <util.h>
 
-static const ioportmask_t col_mask = (1 << GP27 | 1 << GP26 | 1 << GP22 | 1 << GP20 | 1 << GP23 | 1 << GP21);
+static const ioportmask_t col_mask = GENMASK32(27,26) | GENMASK32(23, 20);
 
 /**
  * @brief Helper function to wait until the IO port has reached the wanted
